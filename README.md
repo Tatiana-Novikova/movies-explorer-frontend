@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Проект "Movies Explorer"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Дипломный проект - учебная программа Веб-разработчик от Яндекс.Практикум.<br>
+Сайт для поиска и сохранения фильмов.
 
-## Available Scripts
+Адрес приложения и ссылка на макет:<br>
+http://movies-explorer.nomoredomains.work<br>
+https://www.figma.com/file/QkLbxlI1LVfkWjbqQfycrn/Diploma-(Copy)-2?node-id=932%3A2802<br>
 
-In the project directory, you can run:
+В данном репозитории Frontend-часть проекта, созданная с использованием `CreateReactApp.js`.<br>
+Код написан на `JSX и CSS` и создан в редакторе Visual Studio Code.<br>
 
-### `npm start`
+В коде использованы многие из возможностей HTML-5 и CSS-3:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*flex- и grid-layout вёрстка;<br>
+*разнотипные контейнеры HTML;<br>
+*директива CSS - @import;<br>
+*подключен шрифт Inter;<br>
+*используются микс-классы для реализации эффекта при наведении курсора.<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Код проверен c помощью [Валидатора](https://validator.w3.org/).<br>
+Сайт адаптирован для устройств с разрешением 320px, 768px и от 1280px.<br>
+Файловая структура проекта - [Flat БЭМ](https://ru.bem.info/methodology/filestructure/).<br>
+Подключением normalize.css.
 
-### `npm test`
+Основной целью этой проекта было научиться самостельно создавать frontend-часть веб-приложения.<br>
+А также закрепление на практике изученного на курсе материала.<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+В дальнейшем в проект будет доработан в рамках самостоятельной работы.<br>
+Будут включены дополнительные сценарии Java Script, новые ссылки, медиа-материалы и статьи по теме.
