@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 18px 70px;
+  background: #202020;
+  z-index: 5;
+}
+
+.header__link {
+  height: 38px;
+}
+  
+@media screen and (max-width: 1279px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+  
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 18px 14px;
+  }
+}
