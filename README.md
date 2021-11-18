@@ -3,9 +3,7 @@
 Дипломный проект - учебная программа Веб-разработчик от Яндекс.Практикум.<br>
 Сайт для поиска и сохранения фильмов.
 
-Адрес приложения и ссылка на макет:<br>
-http://movies-explorer.nomoredomains.work<br>
-https://www.figma.com/file/QkLbxlI1LVfkWjbqQfycrn/Diploma-(Copy)-2?node-id=932%3A2802<br>
+[Адрес приложения](http://movies-explorer.nomoredomains.work) и [ссылка на макет](https://www.figma.com/file/QkLbxlI1LVfkWjbqQfycrn/Diploma-(Copy)-2?node-id=932%3A2802)<br>
 
 В данном репозитории Frontend-часть проекта, созданная с использованием `CreateReactApp.js`.<br>
 Код написан на `JSX и CSS` и создан в редакторе Visual Studio Code.<br>
