@@ -3,54 +3,93 @@ import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import DeleteCardPopup from '../DeletePlacePopup/DeleteCardPopup';
+import DeleteCardPopup from '../DeleteCardPopup/DeleteCardPopup';
+import savedMoviesCards from '../../utils/savedMoviesCards';
+
+// import MainApi from '../../utils/MainApi';
 
 function SavedMovies (props) {
-  const [searchQuery, setSearchQuery] = React.useState('');
   const [filterCheckboxState, setFilterCheckboxState] = React.useState(false);
+  const [cardsToRender, setCardsToRender] = React.useState(savedMoviesCards);
+  const [searchQuery, setSearchQuery] = React.useState('');
 
   function handleSearchQueryChange (e) {
     setSearchQuery(e.target.value);
   }
   
-  useEffect(() => {
-    props.handleRequest()
-  }, [props])
+  function handleDeleteCardClick(card) {
+    props.setCardToDelete(card);
+  }
+
+  function handleSearchRequest () {
+    props.setIsLoading(true);
+    const formattedMoviesCards = savedMoviesCards
+      .filter(card => {
+        return card.title
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()
+      )})
+      .map((card) => {
+        return {
+          _id: card._id,
+          duration: card.duration,
+          featurette: card.featurette,
+          link: card.link,
+          saved: card.saved,
+          title: card.title
+        }
+      })
+    setCardsToRender(formattedMoviesCards);
+    props.setIsLoading(false);
+  }
+
+  function handleDeleteCardSubmit(card) {
+    // MainApi.deleteCard(card._id)
+    //   .then((newCard) => {
+    //     setCardsToRender((cards) => 
+    //       cards.filter((c) => 
+    //         c._id !== card._id))
+    //     props.setCardToDelete(null);
+    //   })
+    //   .catch((error) => console.log(error));
+  }
 
   function handleFormSubmit (e) {
     e.preventDefault();
-    props.handleRequest();
+    handleSearchRequest();
   }
+  
+  useEffect(() => {
+    handleSearchRequest()
+  }, [searchQuery])
 
   return ( 
     <section className='saved-movies'>
       <Header loggedIn={props.loggedIn}/>
       <SearchForm
-        onSearchQueryChange={handleSearchQueryChange}
-        searchQuery={searchQuery}
-        onFormSubmit={handleFormSubmit}
         filterCheckboxState={filterCheckboxState}
         onFilterCheckboxChange={() => setFilterCheckboxState(!filterCheckboxState)}
+        onFormSubmit={handleFormSubmit}
+        onSearchQueryChange={handleSearchQueryChange}
+        searchQuery={searchQuery}
       />
       <MoviesCardList
-        loggedIn={props.loggedIn}
-        onDeleteCardClick={props.onDeleteCardClick}
-        onDeleteCard={props.onDeleteCard}
-        isPopupOpened={props.isPopupOpened} 
-        onClose={props.onClose}
         cardToDelete={props.cardToDelete}
-        foundedMoviesCards={props.foundedMoviesCards}
+        cardsToRender={cardsToRender}
+        isGridFiltered={filterCheckboxState}
         isLoading={props.isLoading}
-        handleRequest={props.handleRequest}
+        loggedIn={props.loggedIn}
+        onClose={props.onClose}
+        onDeleteCard={handleDeleteCardSubmit}
+        onDeleteCardClick={handleDeleteCardClick}
       />
       <Footer/>
       <DeleteCardPopup 
-        isPopupOpened={props.isPopupOpened} 
-        onClose={props.onClose}
-        onDeleteCard={props.onDeleteCard}
+        isDeleteCardPopupOpened={props.isDeleteCardPopupOpened} 
+        onPopupClose={props.onPopupClose}
+        onDeleteCard={handleDeleteCardSubmit}
         setCardToDelete={props.setCardToDelete}
-      />
-      
+      />  
     </section>
   );
 }

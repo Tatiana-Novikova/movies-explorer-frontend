@@ -103,6 +103,7 @@
   .about-project__heading {
     max-width: 100%;
   }
+  
   .about-project__heading:last-child  {
     margin: 56px 0 0 0;
   }
@@ -112,7 +113,7 @@
     padding: 60px 0;
   }
 
-  .bout-project__scale-value {
+  .about-project__scale-value {
     font-size: 11px;
   }
 

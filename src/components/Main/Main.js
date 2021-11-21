@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
 
 function Main (props) {
   return ( 
-    <main className='content'>
+    <main className='main'>
       <Header loggedIn={props.loggedIn}/>
       <Promo/>
       <AboutProject/>

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
-import Header from '../Header/Header';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup';
+import Header from '../Header/Header';
 
 function Profile (props) {
   return ( 
-    <div className='page'>
+    <div className='page-container'>
       <Header loggedIn={props.loggedIn}/>
       <section className='profile'>
-        <h2 className='title_place_auth'>Привет, {props.name}!</h2>
+        <h2 className='profile__title'>Привет, {props.name}!</h2>
         <div className='profile__user-info-container'>
           <div className='profile__user-info'>
             <p className='profile__user-info_data'>Имя</p>
@@ -36,8 +36,8 @@ function Profile (props) {
         </Link>
       </section>
       <EditProfilePopup 
-        isPopupOpened={props.isPopupOpened} 
-        onClose={props.onPopupClose}
+        isEditProfilePopupOpened={props.isEditProfilePopupOpened} 
+        onPopupClose={props.onPopupClose}
         onEditProfile={props.onEditProfile}
       />
     </div>

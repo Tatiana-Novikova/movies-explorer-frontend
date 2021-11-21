@@ -4,15 +4,18 @@ import './Form.css';
 
 function Form (props) {
   return (
-    <div className='form-container'>
-      <h2 className='title_place_auth'>{props.title}</h2>
+    <div className={`${props.containsAnyForms 
+      ? 'form-container' 
+      : 'form-container_hidden'}
+    `}>
+      <h2 className='form__title'>{props.title}</h2>
       <form 
         className='form'
         onSubmit={props.onFormSubmit}
         noValidate 
         autoComplete='off'
       >
-        <div className={`${props.hasAnyInputs ? 'form__inputs' : 'form__inputs_hidden'}`}>
+        <div className={`${props.containsAnyInputs ? 'form__inputs' : 'form__inputs_hidden'}`}>
           {props.children}
           <div className="form__section">
             <label className='form__input-label'>E-mail</label>
@@ -21,9 +24,9 @@ function Form (props) {
               id='email' 
               name='email' 
               type='email'
-              value={props.emailInput}
               onChange={props.onEmailChange}
               required
+              disabled={false}
             />
             <span 
               className="form__input-error" 
@@ -37,9 +40,9 @@ function Form (props) {
               id='password' 
               name='password' 
               type='password'
-              value={props.passwordInput}
               onChange={props.onPasswordChange}
               required
+              disabled={false}
             />
             <span 
               className="form__input-error" 
@@ -53,6 +56,7 @@ function Form (props) {
               form__submit-button
               opacity-transition' 
             type='submit'
+            disabled={false}
           >
             {props.buttonText}
           </button>

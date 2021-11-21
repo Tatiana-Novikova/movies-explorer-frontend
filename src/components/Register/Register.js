@@ -31,23 +31,24 @@ function Register ({ onRegister }) {
     <div className='page_type_auth'>
       <Link to='/'> 
         <img 
-          className='logo'
+          className='app__logo'
           src={logo}
           alt='логотип movies-explorer'
         />
       </Link>
       <Form
         title='Добро пожаловать!'
-        emailInput={email}
-        passwordInput={password}
         buttonText='Зарегистрироваться'
         caption='Уже зарегистрированы?'
+        containsAnyImages={false}
+        containsAnyInputs={true}
+        containsAnyForms={true}
         linkText='Войти'
         linkEndpoit='/signin'
         onEmailChange={handleEmailChange}
         onPasswordChange={handlePasswordChange}
         onFormSubmit={handleSubmit}
-        hasAnyInputs={true}
+        
       >
         <div className="form__section">
           <label className='form__input-label'>Имя</label>
@@ -56,7 +57,6 @@ function Register ({ onRegister }) {
             id='name' 
             name='name' 
             type='text'
-            value={name}
             onChange={handleNameChange}
             minLength="2"
             maxLength="40"

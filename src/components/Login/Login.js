@@ -24,23 +24,23 @@ function Login ({ onLogin }) {
     <div className='page_type_auth'>
      <Link to='/'> 
         <img 
-          className='logo'
+          className='app__logo'
           src={logo}
           alt='логотип movies-explorer'
         />
       </Link> 
       <Form
         title='Рады видеть!'
-        emailInput={email}
-        passwordInput={password}
         buttonText='Войти'
         caption='Ещё не зарегистрированы?'
+        containsAnyImages={false}
+        containsAnyInputs={true}
+        containsAnyForms={true}
         linkText='Регистрация'
         linkEndpoit='/signup'
         onEmailChange={handleEmailChange}
         onPasswordChange={handlePasswordChange}
         onFormSubmit={handleSubmit}
-        hasAnyInputs={true}
       />
     </div>
   )

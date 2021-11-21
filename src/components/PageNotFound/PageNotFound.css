@@ -39,15 +39,18 @@
   .not-found {
     height: 780px
   }
+
   .not-found__title {
     margin: 329px auto 10px;
     line-height: 1.21;
     font-size: 80px;
   }
+
   .not-found__text {
     line-height: 1.21;
     font-size: 12px;
   }
+  
   .not-found__button {
     margin: 284px auto 30px;
   }

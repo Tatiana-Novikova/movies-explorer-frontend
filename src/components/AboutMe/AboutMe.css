@@ -12,6 +12,7 @@
 .about-me__name {
   margin: 0;
   text-align: left;
+  font-weight: 400;
 }
 
 .about-me__photo {
@@ -79,11 +80,12 @@
 
   .about-me__student-info {
     flex-direction: column-reverse;
-    margin: 60px 0 0;
+    align-items: center;
+    margin: 60px auto 0;
   }
 
   .about-me__text {
-    max-width: 292px;
+    max-width: 100%;
     line-height: 1.45;
     font-size: 11px;
   }

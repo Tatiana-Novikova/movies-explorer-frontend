@@ -8,12 +8,29 @@
   background: #272727;
   border-radius: 10px;
 }
+
+.promo__title {
+  max-width: 70%;
+  margin: auto;
+  padding: 0;
+  line-height: 1.16;
+  font-size: 50px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: -.04em;
+}
   
 @media screen and (max-width: 1279px) {
   .promo {
     min-height: 804px;
     margin: 20px 20px 0;
     padding: 0 0 30px;
+  }
+
+  .promo__title {
+    max-width: 90%;
+    line-height: 1.3;
+    font-size: 40px;
   }
 }
   
@@ -22,5 +39,10 @@
     min-height: 569px;
     margin: 14px 14px 0;
     padding: 0 0 17px;
+  }
+
+  .promo__title {
+    max-width: 95%;
+    font-size: 29px;
   }
 }

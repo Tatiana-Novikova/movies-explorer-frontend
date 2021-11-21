@@ -22,8 +22,15 @@ function SearchForm (props) {
             required
           />
           <button
-            className='search-form__submit-button opacity-transition' 
+            className={`search-form__submit-btn opacity-transition
+              ${(props.searchQuery !== '')
+                ? 'search-form__submit-btn_active'
+                : 'search-form__submit-btn_disabled'
+              }
+            `} 
             type='submit'
+            disabled={(props.searchQuery !== '') ? false : true
+            }
           >
             Найти
           </button>
@@ -35,6 +42,7 @@ function SearchForm (props) {
           checked={props.filterCheckboxState}
           onChange={props.onFilterCheckboxChange}
           id='checkbox-toggle'
+          disabled={false}
         />
         <span className='search-form__checkbox-capture'>Короткометражки</span>
       </label>

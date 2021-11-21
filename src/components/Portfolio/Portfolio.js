@@ -7,17 +7,35 @@ function Portfolio () {
       <h3 className='portfolio__heading'>Портфолио</h3>
       <ul className='portfolio__links'>
         <li className='portfolio__links-item'>
-          <a href='https://github.com/Tatiana-Novikova/how-to-learn' className='portfolio__link'>Статичный сайт
+          <a 
+            className='portfolio__link'
+            href='https://github.com/Tatiana-Novikova/how-to-learn'
+            target='_blank'
+            rel='noreferrer nofollow'
+          >
+            Статичный сайт
             <span className='portfolio__link-arrow'>&#8599;</span>
           </a>
         </li>
         <li className='portfolio__links-item'>
-          <a href='https://tatiana-novikova.github.io/russian-travel/' className='portfolio__link'>Адаптивный сайт 
+          <a 
+            className='portfolio__link'
+            href='https://tatiana-novikova.github.io/russian-travel/'
+            target='_blank'
+            rel='noreferrer nofollow'
+          >
+            Адаптивный сайт 
             <span className='portfolio__link-arrow'>&#8599;</span>
           </a>
         </li>
         <li className='portfolio__links-item'>
-          <a href='http://mesto-project.students.nomoredomains.club/' className='portfolio__link'>Одностраничное приложение
+          <a 
+            className='portfolio__link'
+            href='https://mesto-project.students.nomoredomains.club/'
+            target='_blank'
+            rel='noreferrer nofollow'
+          >
+            Одностраничное приложение
             <span className='portfolio__link-arrow'>&#8599;</span>
           </a>
         </li>

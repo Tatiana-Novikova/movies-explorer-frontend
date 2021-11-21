@@ -6,44 +6,50 @@ import icon from '../../images/navigation__profile-icon.svg';
 function Navigation (props) {
   return ( 
     <nav className='navigation'>
-      <input id='menu-toggle' type='checkbox' />
-      <label
-        className='menu-btn'
-        htmlFor='menu-toggle'
-      >
-        <span className='menu-btn__line'></span>
-	    </label>
-      <section className='menu'>
-        <div className='menu-background'></div>
-        <div className='menu-container'>
-          <Switch>
-            <Route path='/'>
-              <div className={`
-                ${props.loggedIn 
-                  ? 'navigation__links_hidden'
-                  : 'navigation__links_visible' 
-                }`}
+      <Switch>
+        <Route path='/'>
+          <div className={`navigation__auth-links
+            ${props.loggedIn 
+              ? 'navigation__links_hidden'
+              : 'navigation__links_visible' 
+            }`}
+          >
+            <div className='navigation__links-not-auth'>
+              <NavLink 
+                to='signup'
+                className='navigation__link'
               >
-                <NavLink 
-                  to='signup'
-                  className='navigation__link'
-                >
-                  Регистрация
-                </NavLink>
-                <NavLink 
-                  to='signin' 
-                  className='navigation__link navigation__link_type_signin'
-                >
-                  Войти
-                </NavLink>
-              </div>
+                Регистрация
+              </NavLink>
+              <NavLink 
+                to='signin' 
+                className='navigation__link navigation__link_type_signin'
+              >
+                Войти
+              </NavLink>
+            </div>
+          </div>
+          <input id='navigation__menu-toggle' type='checkbox'/>
+          <label
+            className={`
+            ${props.loggedIn 
+              ? 'navigation__menu-btn'
+              : 'navigation__menu-btn_hidden' 
+            }`}
+            htmlFor='navigation__menu-toggle'
+          >
+            <span className='navigation__menu-btn-line'></span>
+	        </label>
+          <section className='navigation__menu'>
+            <div className='navigation__menu-background'></div>
+            <div className='navigation__menu-container'>
               <div className={`
                 ${props.loggedIn 
                   ? 'navigation__links_visible'
                   : 'navigation__links_hidden' 
                 }`}
               >
-                <div className='navigation__links-box'>
+                <div className='navigation__links-auth'>
                   <NavLink 
                     exact to='/' 
                     className='navigation__link navigation__link_type_main'
@@ -68,7 +74,7 @@ function Navigation (props) {
                 </div>
                 <NavLink 
                   to='profile' 
-                  className='navigation__link navigation__link_type_icon'
+                  className='navigation__link navigation__link_type_profile'
                   activeClassName="navigation__link_active"
                 >
                   Аккаунт
@@ -78,10 +84,10 @@ function Navigation (props) {
                   />
                 </NavLink>
               </div>
-            </Route>
-          </Switch>
-        </div>
-      </section>
+            </div>
+          </section>
+        </Route>
+      </Switch>
     </nav>
   );
 }

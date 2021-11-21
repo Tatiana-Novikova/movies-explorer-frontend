@@ -9,7 +9,7 @@ function Header(props) {
     <header className='header'>
       <Link to='/' className='header__link'>
         <img 
-          className='logo'
+          className='app__logo'
           src={logo}
           alt='логотип movies-explorer'
         />

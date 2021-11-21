@@ -8,25 +8,33 @@ function MoviesCardList (props) {
     ;
   };
   return (
-    <section className='movies-cards-list'>
+    <section className={`${props.cardsToRender.length === 0
+      ? `movies-cards-list_hidden` 
+      : `movies-cards-list`}
+    `}>
       {props.isLoading && (<Preloader/>)}
       <div className='movies-cards-grid'>
-        {props.foundedMoviesCards.map((moviesCard) => {
+        {props.cardsToRender.map((сardToRender) => {
           return (
             <MoviesCard 
-              key={moviesCard._id} 
-              moviesCard={moviesCard}
+              key={сardToRender._id} 
+              сardToRender={сardToRender}
               isGridFiltered={props.isGridFiltered}
               onDeleteCardClick={props.onDeleteCardClick}
+              onSaveCard={props.onSaveCard}
             />
           )
         })}
       </div>
       <button 
-        className='movies-cards-list__button'
+        className={`${props.cardsToRender.length === 0
+          ? `movies-cards-list__button_hidden` 
+          : `movies-cards-list__button`}
+        `}
         type='button' 
         aria-label='Показать больше фильмов' 
         onClick={handleShowMoreClick}
+        disabled={false}
       >
         Ещё
       </button>

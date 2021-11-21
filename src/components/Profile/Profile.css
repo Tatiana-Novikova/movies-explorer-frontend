@@ -29,6 +29,15 @@
   color: #EE3465;
 }
 
+.profile__title {
+  margin: 40px 0;
+  line-height: 1.21;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+}
+
 .profile__user-info {
   display: flex;
   justify-content: space-between;
@@ -72,12 +81,18 @@
     font-size: 12px;
   }
 
+  .profile__title {
+    text-align: center;
+  }
+
   .profile__user-info {
     min-width: 260px;
   }
+
   .profile__user-info:first-child {
     margin: 40px 0 0 0;
   }
+  
   .profile__user-info:last-child {
     margin: 0 0 379px 0;
   }
