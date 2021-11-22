@@ -2,7 +2,8 @@
   margin: 0;
   position: relative;
   color: #000;
-  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  /* box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05); */
 }
 
 .movies-card_hidden {
@@ -53,7 +54,6 @@
 .movies-card__image {
   width: 100%;
   min-height: 151px;
-  object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
 

@@ -58,6 +58,11 @@
 }
   
 @media screen and (max-width: 767px) {
+  .movies-cards-list {
+    width: calc(100% - 10px*2);
+    margin: 0 10px 0;
+  }
+
   .movies-cards-list__button {
     width: calc(100% - 10px*2);
     margin: 50px 10px 80px;
