@@ -1,0 +1,222 @@
+.navigation__link {
+  margin: 0 0 0 20px;
+  line-height: 1.33;
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navigation__link:first-child {
+  margin-left: 0;
+}
+
+.navigation__link_active {
+  font-weight: 500;
+}
+
+.navigation__link_type_profile {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 50px;
+  font-size: 12px;
+}
+
+.navigation__link_type_main {
+  visibility: hidden;
+}
+
+.navigation__link_type_signin {
+  padding: 8px 20px;
+  background: #3DDC84;
+  color: #000;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.navigation__links_visible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation__links_hidden {
+  display: none;
+}
+
+.navigation__links-not-auth {
+  font-size: 12px;
+}
+
+.navigation__links-auth {
+  font-size: 12px;
+}
+
+.navigation__menu-container {
+  display: flex;
+  align-items: center;
+}
+
+#navigation__menu-toggle{
+  display: none;
+}
+
+.navigation__profile-icon {
+  width: 30px;
+  height: 30px;
+  margin: auto 0 auto 13px;
+  background: #313131;
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__link {
+    margin: 0 0 28px 0;
+    padding: 0 0 4px 0;
+    line-height: 1.21;
+    font-weight: 500;
+  }
+
+  .navigation__link_active {
+    border-bottom: solid 2px #fff;
+    max-width: max-content;
+  }
+  .navigation__link_type_main {
+    visibility: visible;
+  }
+
+  .navigation__link_type_profile {
+    line-height: 1.44;
+    font-size: 14px;
+  }
+
+  .navigation__link_type_signin {
+    padding: 5px 12px;
+    margin: 0 0 0 14px;
+  }
+
+  .navigation__links_visible {
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    height: 100%;
+  }
+
+  .navigation__links-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .navigation__links-not-auth {
+    font-size: 10px;
+  }
+
+  .navigation__menu {
+    position: fixed;
+    visibility: visible;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    transition-duration: .25s;
+  }
+
+  .navigation__menu-background {
+    width: calc(100% - 520px);
+    height: 100%;
+    background-color: #000;
+    opacity: .3;
+  }
+
+  .navigation__menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .navigation__menu-btn_hidden {
+    display: none;
+  }
+   
+  .navigation__menu-btn-line,
+  .navigation__menu-btn-line::after,
+  .navigation__menu-btn-line::before {
+    display: block;
+    position: absolute;
+    width: 100%;
+    max-width: 28px;
+    height: 3px;
+    background-color: #fff;
+    text-align: right;
+    transition-duration: .25s;
+  }
+
+  .navigation__menu-btn-line::after {
+    content: '';
+    top: 8px;
+  }
+
+  .navigation__menu-btn-line::before {
+    content: '';
+    top: -8px;
+  }
+  
+  .navigation__menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 520px;
+    height: calc(100% - 159px - 92px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 159px 0 92px 0;
+    background-color: #202020;
+  }
+
+  #navigation__menu-toggle:checked ~ .navigation__menu-btn > span{
+    transform: rotate(45deg);
+  }
+
+  #navigation__menu-toggle:checked ~ .navigation__menu-btn > span::before{
+    top: 0;
+    transform: rotate(0);
+  }
+
+  #navigation__menu-toggle:checked ~ .navigation__menu-btn > span::after{
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  #navigation__menu-toggle:checked ~ .navigation__menu{
+    visibility: visible;
+    right: 0;
+  }
+
+  .navigation__menu-btn{
+    top: 15px;
+    right: 14px;
+    width: 22px;
+  }
+
+  .navigation__menu-btn > span,
+  .navigation__menu-btn > span::before,
+  .navigation__menu-btn > span::after {
+    height: 2.5px;
+  }
+
+  .navigation__menu-container {
+    width: 100%;
+    height: calc(100% - 144px - 48px);
+  }
+}
