@@ -2,10 +2,17 @@ import React from 'react';
 import './SearchForm.css';
 
 function SearchForm (props) {
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    props.onFormSubmit(searchQuery);
+  }
+
   return (
     <form 
     className='search-form'
-    onSubmit={props.onFormSubmit}
+    onSubmit={handleSearch}
     noValidate 
     autoComplete='off'
   > 
@@ -18,18 +25,19 @@ function SearchForm (props) {
             name='query' 
             type='text'
             placeholder='Фильм'
-            onChange={props.onSearchQueryChange}
+            onChange={ (e) => setSearchQuery(e.target.value) }
+            value={searchQuery}
             required
           />
           <button
             className={`search-form__submit-btn opacity-transition
-              ${(props.searchQuery !== '')
+              ${(searchQuery !== '')
                 ? 'search-form__submit-btn_active'
                 : 'search-form__submit-btn_disabled'
               }
             `} 
             type='submit'
-            disabled={(props.searchQuery !== '') ? false : true
+            disabled={(searchQuery !== '') ? false : true
             }
           >
             Найти
