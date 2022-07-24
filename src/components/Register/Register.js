@@ -3,28 +3,11 @@ import { Link } from 'react-router-dom';
 import Form from '../Form/Form';
 import logo from '../../images/logo.svg';
 
-
-function Register ({ onRegister }) {
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-
-  function handleNameChange (e) {
-    setName(e.target.value)
-  }
-
-  function handleEmailChange (e) {
-    setEmail(e.target.value)
-  }
-
-  function handlePasswordChange (e) {
-    setPassword(e.target.value)
-  }
-
+function Register (props) {
+    
   function handleSubmit (e) {
-    e.preventDefault()
-    onRegister(name, email, password)
+    e.preventDefault();
+    props.onRegister(props.nameValue, props.emailValue, props.passwordValue);
   }
 
   return (
@@ -37,7 +20,6 @@ function Register ({ onRegister }) {
         />
       </Link>
       <Form
-        title='Добро пожаловать!'
         buttonText='Зарегистрироваться'
         caption='Уже зарегистрированы?'
         containsAnyImages={false}
@@ -45,23 +27,42 @@ function Register ({ onRegister }) {
         containsAnyForms={true}
         linkText='Войти'
         linkEndpoit='/signin'
-        onEmailChange={handleEmailChange}
-        onPasswordChange={handlePasswordChange}
-        onFormSubmit={handleSubmit}
-        
+        title='Добро пожаловать!'
+        onSubmit={handleSubmit}
+        formSubmitErrorMessage={props.formSubmitErrorMessage}
+        emailValue={props.emailValue}
+        nameValue={props.nameValue}
+        passwordValue={props.passwordValue}
+        emailErrorMessage={props.emailErrorMessage}
+        nameErrorMessage={props.nameErrorMessage}
+        passwordErrorMessage={props.passwordErrorMessage}
+        onEmailFocus={props.onEmailFocus}
+        onEmailChange={props.onEmailChange}
+        onPasswordFocus={props.onPasswordFocus}
+        onPasswordChange={props.onPasswordChange}
+        isEmailDirty={props.isEmailDirty}
+        isPasswordDirty={props.isPasswordDirty}
+        isNameValid={props.isNameValid}
+        isEmalValid={props.isEmailValid}
+        isPasswordValid={props.isPasswordValid}
       >
         <div className="form__section">
           <label className='form__input-label'>Имя</label>
           <input
             className='form__input'
-            id='name' 
-            name='name' 
+            disabled={false}
+            name='name'
+            onChange={props.onNameChange}
+            onFocus={props.onNameFocus}
             type='text'
-            onChange={handleNameChange}
-            minLength="2"
-            maxLength="40"
             required
+            value={props.nameValue}
           />
+          {(props.nameValue && props.isNameDirty) && <span 
+              className="form__input-error" 
+              id="form__input-name-error">
+                {props.nameErrorMessage}
+            </span>}
         </div>
       </Form>
     </div>

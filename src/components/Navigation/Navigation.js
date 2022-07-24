@@ -8,10 +8,10 @@ function Navigation (props) {
     <nav className='navigation'>
       <Switch>
         <Route path='/'>
-          <div className={`navigation__auth-links
-            ${props.loggedIn 
-              ? 'navigation__links_hidden'
-              : 'navigation__links_visible' 
+          <div className={`
+            ${!props.loggedIn 
+              ? 'navigation__links_visible'
+              : 'navigation__links_hidden' 
             }`}
           >
             <div className='navigation__links-not-auth'>
@@ -44,7 +44,7 @@ function Navigation (props) {
             <div className='navigation__menu-background'></div>
             <div className='navigation__menu-container'>
               <div className={`
-                ${props.loggedIn 
+                ${props.loggedIn
                   ? 'navigation__links_visible'
                   : 'navigation__links_hidden' 
                 }`}

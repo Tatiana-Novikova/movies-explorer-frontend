@@ -1,39 +1,48 @@
 import React from 'react';
 import './MoviesCardList.css';
-import MoviesCard from '../MoviesCard/MoviesCard';
+import Movie from '../Movie/Movie';
 import Preloader from '../Preloader/Preloader';
 
 function MoviesCardList (props) {
-  function handleShowMoreClick() {
-    ;
-  };
+  let moviesToRender = [];
+
+  for (let i = 0; i < props.maxMoviesNum; i++) {
+    if (props.moviesToPrerenderList[i]) {
+      moviesToRender.push(props.moviesToPrerenderList[i]);
+    }
+  }
+
+  // window.addEventListener("optimizedResize", function() {
+  //   console.log("Resource conscious resize callback!");
+  // });
+
   return (
-    <section className={`${props.cardsToRender.length === 0
+    <section className={`${moviesToRender.length === 0
       ? `movies-cards-list_hidden` 
       : `movies-cards-list`}
     `}>
       {props.isLoading && (<Preloader/>)}
-      <div className='movies-cards-grid'>
-        {props.cardsToRender.map((сardToRender) => {
+      <ul className='movies-cards-grid'>
+        {moviesToRender.map((movieToRender) => {
           return (
-            <MoviesCard 
-              key={сardToRender._id} 
-              сardToRender={сardToRender}
-              isGridFiltered={props.isGridFiltered}
-              onDeleteCardClick={props.onDeleteCardClick}
-              onSaveCard={props.onSaveCard}
-            />
+            <li key={movieToRender.movieId || movieToRender.id}>
+              <Movie
+                handleSaveOrDeleteClick={props.handleSaveOrDeleteClick}
+                isSavedCheck={props.isSavedCheck}
+                movieToRender={movieToRender}
+              />
+            </li>
           )
         })}
-      </div>
+      </ul>
       <button 
-        className={`${props.cardsToRender.length === 0
-          ? `movies-cards-list__button_hidden` 
-          : `movies-cards-list__button`}
-        `}
+        className={`${moviesToRender.length <= props.maxMoviesNum
+          ? `movies-cards-list__btn` 
+          : `movies-cards-list__btn_hidden`
+        }`}
         type='button' 
         aria-label='Показать больше фильмов' 
-        onClick={handleShowMoreClick}
+        onClick={props.handleShowMoreClick}
         disabled={false}
       >
         Ещё
