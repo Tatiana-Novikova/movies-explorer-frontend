@@ -4,10 +4,13 @@ import Form from '../Form/Form';
 import logo from '../../images/logo.svg';
 
 function Register (props) {
+  const [isRequest, setIsRequest] = React.useState(false);
     
   function handleSubmit (e) {
     e.preventDefault();
+    setIsRequest(true);
     props.onRegister(props.nameValue, props.emailValue, props.passwordValue);
+    setIsRequest(true);
   }
 
   return (
@@ -45,6 +48,7 @@ function Register (props) {
         isNameValid={props.isNameValid}
         isEmalValid={props.isEmailValid}
         isPasswordValid={props.isPasswordValid}
+        isRequest={isRequest}
       >
         <div className="form__section">
           <label className='form__input-label'>Имя</label>

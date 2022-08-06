@@ -1,0 +1,31 @@
+.more-btn {
+  width: calc(100% - 70px*2);
+  height: 36px;
+  line-height: 1.21;
+  border: none;
+  margin: 50px 70px 80px;
+  padding: 0;
+  background: #2f2f2f;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.more-btn_hidden {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .more-btn {
+    width: calc(100% - 10px*2);
+    margin: 50px 30px 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .more-btn {
+    width: calc(100% - 30px*2);
+    margin: 50px 30px 80px;
+  }
+}

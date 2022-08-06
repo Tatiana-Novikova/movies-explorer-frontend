@@ -13,6 +13,14 @@ class Api {
       return Promise.reject(res.status);
     }
   }
+
+  setupAuthorization(token) {
+    if (token) {
+      this._headers['Autharization'] = token;
+    } else {
+      delete this._headers['Autharization'];
+    }
+  }
  
   register(name, email, password) { 
     return fetch(`${this._address}/signup`, { 
@@ -70,7 +78,6 @@ class Api {
 
 const AuthApi = new Api ({
   address: 'https://api.movies-explorer.nomoredomains.work',
-  // address: 'http://localhost:3000',
 })
 
 export default AuthApi;

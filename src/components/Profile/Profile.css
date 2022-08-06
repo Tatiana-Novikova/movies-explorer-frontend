@@ -7,7 +7,7 @@
 }
 
 .profile__edit-button {
-  margin: 220px 0 0 0;
+  margin: 10px 0 0 0;
   border: none;
   background: transparent;
   line-height: 1.21;
@@ -39,6 +39,12 @@
   color: #EE3465;
 }
 
+.profile__submit-message {
+  color: #32CD32;
+  text-align: center;
+}
+
+
 .profile__title {
   margin: 40px 0;
   line-height: 1.21;
@@ -49,6 +55,7 @@
 }
 
 .profile__user-info {
+  margin: 0 0 220px 0;
   display: flex;
   align-content: space-between;
   justify-content: space-between;
@@ -74,8 +81,8 @@
     margin: 234px auto 269px;
   }
 
-  .profile__edit-button  {
-    margin: 210px 0 0 0;
+  .profile__user-inf0  {
+    margin: 0 0 210px 0;
   }
 
   .profile__user-info:first-child {
@@ -90,7 +97,7 @@
   }
 
   .profile__edit-button  {
-    margin: 379px 0 0 0;
+    
   }
 
   .profile__link {
@@ -98,6 +105,7 @@
   }
 
   .profile__user-info {
+    margin: 0 0 379px 0;
     min-width: 260px;
   }
 

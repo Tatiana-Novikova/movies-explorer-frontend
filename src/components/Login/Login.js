@@ -4,9 +4,13 @@ import Form from '../Form/Form';
 import logo from '../../images/logo.svg';
 
 function Login (props) {
+  const [isRequest, setIsRequest] = React.useState(false);
+
   function handleSubmit (e) {
     e.preventDefault();
+    setIsRequest(true);
     props.onLogin(props.emailValue, props.passwordValue);
+    setIsRequest(false);
   }
 
   return (
@@ -44,6 +48,7 @@ function Login (props) {
         isNameValid={true}
         isEmalValid={props.isEmailValid}
         isPasswordValid={props.isPasswordValid}
+        isRequest={isRequest}
       />
     </div>
   )

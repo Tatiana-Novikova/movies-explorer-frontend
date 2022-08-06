@@ -16,6 +16,14 @@ class Api {
     }
   }
 
+  setupAuthorization(token) {
+    if (token) {
+      this._headers['Autharization'] = token;
+    } else {
+      delete this._headers['Autharization'];
+    }
+  }
+
   getCurrentUser() {
     return fetch(`${this._address}/users/me`, {
       method: 'GET',
@@ -46,11 +54,11 @@ class Api {
         year: movie.year,
         description: movie.description,
         image: BASE_MOVIE_URL + movie.image.url,
-        trailer: movie.trailerLink,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
+        trailerLink: movie.trailerLink,
         thumbnail: BASE_MOVIE_URL + movie.image.formats.thumbnail.url,
         movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
       }),
     })
     .then(this._checkResponse);
@@ -68,7 +76,6 @@ class Api {
 
 const MainApi = new Api ({
   address: 'https://api.movies-explorer.nomoredomains.work',
-  // address: 'http://localhost:3000',
 })
 
 export default MainApi;

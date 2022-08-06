@@ -48,6 +48,9 @@ function Profile (props) {
               value={email || ''}
             />
           </div>
+          <span className="profile__submit-message">
+            {props.profileSubmitMessage}
+          </span>
           <button
             className='profile__edit-button'
             type='submit'

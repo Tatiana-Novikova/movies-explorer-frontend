@@ -16,7 +16,8 @@ function Form (props) {
         noValidate
         autoComplete='off'
       >
-        <div className={`${props.containsAnyInputs ? 'form__inputs' : 'form__inputs_hidden'}`}>
+        <div className={`${props.containsAnyInputs 
+          ? 'form__inputs' : 'form__inputs_hidden'}`}>
           {props.children}
           <div className="form__section">
             <label className='form__input-label'>E-mail</label>
@@ -61,13 +62,15 @@ function Form (props) {
           </span>
           <button
             className={`form__submit-btn opacity-transition
-              ${props.isNameValid && props.isEmalValid && props.isPasswordValid
+              ${props.isNameValid && props.isEmalValid 
+                && props.isPasswordValid && !props.isRequest
                 ? 'form__submit-btn_active'
                 : 'form__submit-btn_disabled'
               }
             `}
             type='submit'
-            disabled={props.isNameValid && props.isEmalValid && props.isPasswordValid
+            disabled={props.isNameValid && props.isEmalValid
+              && props.isPasswordValid && !props.isRequest
             ? false
             : true
           }
