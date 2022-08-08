@@ -34,6 +34,11 @@ function App() {
   const [savedMoviesSearchResult, setSavedMoviesSearchResult] = React.useState('');
   const [isAppLoading, setIsAppLoading] = React.useState(true);
 
+  const [moviesListCaption, setMoviesListCaption] = React.useState(location === '/movies' 
+    ? 'Чтобы найти фильм, введите запрос' 
+    : 'Сохранённых фильмов пока нет'
+  );
+
   const name = formValidator
     .useInput('', {
       isNameValid: true,
@@ -186,11 +191,11 @@ function App() {
     const filteredMovies = movies
       .filter(movie => (movie.nameRU.toLowerCase().includes(searchQuery.toLowerCase())))
       .filter(movie => isShort ? movie.duration <= 40 : true);
-    if (filteredMovies.length === 0 && location === '/saved-movies') {
-      setSavedMoviesSearchResult('Фильм по запросу не найден');
-    } else {
-      setSavedMoviesSearchResult('');
-    }
+    // if (filteredMovies.length === 0 && location === '/saved-movies') {
+    //   setSavedMoviesSearchResult('Фильм по запросу не найден');
+    // } else {
+    //   setSavedMoviesSearchResult('');
+    // }
     return filteredMovies;
   }
 
@@ -201,6 +206,9 @@ function App() {
         const searchResult = handleFilterMovies(movies, {searchQuery, isShort});
         setSearchedMovies(searchResult);
         localStorage.setItem('lastSearchedMovies', JSON.stringify(searchResult));
+        searchResult.length === 0 
+          ? setMoviesListCaption('Фильм по запросу не найден')
+          : setMoviesListCaption('')
       });
   }
 
@@ -379,6 +387,8 @@ function App() {
             isSavedCheck={isSavedCheck}
             setIsLoading={setIsLoading}
             isLoading={isLoading}
+            moviesListCaption={moviesListCaption}
+            setMoviesListCaption={setMoviesListCaption}
           />
           <ProtectedRoute
             component={SavedMovies}
@@ -396,6 +406,8 @@ function App() {
             savedMovies={savedMovies}
             searchResult={savedMoviesSearchResult}
             setPreloader={setIsLoading}
+            moviesListCaption={moviesListCaption}
+            setMoviesListCaption={setMoviesListCaption}
           />
           <Route exact path='*'>
             <PageNotFound />

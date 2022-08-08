@@ -33,6 +33,8 @@ function SavedMovies (props) {
         moviesToPrerenderList={filterCheckboxState ? filteredSavedMovies : props.savedMovies}
         onClose={props.onClose}
         searchResult={props.searchResult}
+        moviesListCaption={props.moviesListCaption}
+        setMoviesListCaption={props.setMoviesListCaption}
       />
       <Footer/>
     </section>

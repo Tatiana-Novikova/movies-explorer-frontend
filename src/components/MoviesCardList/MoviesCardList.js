@@ -6,17 +6,26 @@ import Preloader from '../Preloader/Preloader';
 
 function MoviesCardList (props) {
   const location = window.location.pathname;
+  const maxMoviesNumOnLargeScreen = 16;
+  const maxMoviesNumOnMiddleScreen = 8;
+  const maxMoviesNumOnSmallScreen = 5;
+  const largeScreenSizePoint = 1280;
+  const middleScreenSizePoint = 768;
+  const smallScreenSizePoint = 320;
   let moviesToRender = [];
   const lastSearchedMovies = JSON.parse(localStorage.getItem('lastSearchedMovies'));
-  let captureText = '';
+  // let captureText = '';
+ 
   const [maxMoviesNum, setMaxMoviesNum] = React.useState(
-    (window.innerWidth >= 1280) 
-      ? 16
-      : window.innerWidth < 1280 && window.innerWidth >= 768
-        ? 8
-        : window.innerWidth < 768 && window.innerWidth >= 320
-          ? 5
-          : 0
+    window.innerWidth >= largeScreenSizePoint
+      ? maxMoviesNumOnLargeScreen
+      : window.innerWidth < largeScreenSizePoint 
+        && window.innerWidth >= middleScreenSizePoint
+          ? maxMoviesNumOnMiddleScreen
+          : window.innerWidth < middleScreenSizePoint 
+            && window.innerWidth >= smallScreenSizePoint
+              ? maxMoviesNumOnSmallScreen
+              : maxMoviesNumOnSmallScreen
   );
 
   for (let i = 0; i < maxMoviesNum; i++) {
@@ -25,33 +34,37 @@ function MoviesCardList (props) {
     }
   }
 
+  React.useEffect(() => {
+    if (location === '/movies') {
+      if (!lastSearchedMovies) {
+        props.setMoviesListCaption('Чтобы найти фильм, введите запрос');
+      } else if (lastSearchedMovies.length === 0) {
+        props.setMoviesListCaption('Фильм по запросу не найден');
+      }
+    } else if (location === '/saved-movies') {
+      if(props.searchResult === '') {
+        props.setMoviesListCaption('Сохранённых фильмов пока нет');
+      } else {
+        props.setMoviesListCaption(props.moviesListCaption);
+      }
+    }
+  }, [])
+
   const handleShowMoreClick = () => {
-    window.innerWidth >= 1280
+    window.innerWidth >= largeScreenSizePoint
       ? setMaxMoviesNum(maxMoviesNum + 4)
       : setMaxMoviesNum(maxMoviesNum + 2);
   }
 
-  if (location === '/movies') {
-    if (!lastSearchedMovies) {
-      captureText = 'Чтобы найти фильм, введите запрос';
-    } else if (lastSearchedMovies.length === 0) {
-      captureText = 'Фильм по запросу не найден';
-    }
-  } else if (location === '/saved-movies') {
-    if(props.searchResult === '') {
-      captureText = 'Сохранённых фильмов пока нет';
-    } else {
-      captureText = props.searchResult;
-    }
-  }
-
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1280) {
-      setMaxMoviesNum(16);
-    } else if (window.innerWidth < 1280 && window.innerWidth >= 768) {
-      setMaxMoviesNum(8);
-    } else if (window.innerWidth < 768 && window.innerWidth >= 320) {
-      setMaxMoviesNum(5);
+    if (window.innerWidth >= largeScreenSizePoint) {
+      setMaxMoviesNum(maxMoviesNumOnLargeScreen);
+    } else if (window.innerWidth < largeScreenSizePoint 
+      && window.innerWidth >= middleScreenSizePoint) {
+      setMaxMoviesNum(maxMoviesNumOnMiddleScreen);
+    } else if (window.innerWidth < middleScreenSizePoint 
+      && window.innerWidth >= smallScreenSizePoint) {
+      setMaxMoviesNum(maxMoviesNumOnSmallScreen);
     } 
   })
 
@@ -76,7 +89,7 @@ function MoviesCardList (props) {
             ) 
           : (
             <p className={'movies-cards-list__capture'}>
-              {captureText}
+              {props.moviesListCaption}
             </p>
           )
         }

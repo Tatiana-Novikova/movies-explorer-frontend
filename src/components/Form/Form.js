@@ -41,7 +41,7 @@ function Form (props) {
           <label className='form__input-label'>Пароль</label>
             <input
               className='form__input'
-              disabled={false}
+              disabled={props.isRequest ? true : false}
               name='password' 
               type='password'
               onFocus={props.onPasswordFocus}

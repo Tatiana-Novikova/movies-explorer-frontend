@@ -29,6 +29,8 @@ function Movies (props) {
         isSavedCheck={props.isSavedCheck}
         handleSaveOrDeleteClick={props.handleSaveOrDeleteClick}
         moviesToPrerenderList={filterCheckboxState ? filteredMovies : props.movies}
+        moviesListCaption={props.moviesListCaption}
+        setMoviesListCaption={props.setMoviesListCaption}
       />
       <Footer/>
     </section>
