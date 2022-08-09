@@ -1,37 +1,38 @@
-.movies-card {
+.movie {
   margin: 0;
   position: relative;
   color: #000;
   border-radius: 10px;
-  /* box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05); */
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
 }
 
-.movies-card_hidden {
+.movie_hidden {
   display: none;
 }
 
-.movies-card__btn_active {
+.movie__btn_active {
   background: #2BE080;
 }
 
-.movies-card__btn_disabled{
+.movie__btn_disabled{
   background: #313131;
 }
 
-.movies-card__btn_hidden {
+.movie__btn_hidden {
   display: none;
 }
 
-.movies-card__btn_type_delete {
+.movie__btn_type_delete {
   min-width: 16px;
   height: 16px;
-  background: url('../../images/movies-card__delete-btn.svg') no-repeat center;
+  background: url('../../images/movie__delete-btn.svg') no-repeat center;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
   z-index: 1;
 }
-.movies-card__btn_type_save {
+
+.movie__btn_type_save {
   width: 16px;
   height: 16px;
   -webkit-appearance: none;
@@ -42,7 +43,7 @@
   cursor: pointer;
 }
 
-.movies-card__duration {
+.movie__duration {
   margin: 0;
   padding: 0;
   line-height: 1.21;
@@ -51,13 +52,13 @@
   text-align: left;
 }
 
-.movies-card__image {
+.movie__image {
   width: 100%;
   min-height: 151px;
   border-radius: 10px 10px 0 0;
 }
 
-.movies-card__info {
+.movie__info {
   display: flex;
   justify-content: space-between;
   margin: 0;
@@ -66,7 +67,7 @@
   border-radius: 0 0 10px 10px;
 }
 
-.movies-card__title {
+.movie__title {
   margin: 0 0 10px 0;
   padding: 0;
   line-height: 1.21;
@@ -76,34 +77,34 @@
 }
 
 @media screen and (max-width: 1279px) {
-  .movies-card__image {
-    height: 191px;
+  .movie__image {
+    max-height: 191px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .movies-card {
+  .movie {
     display: inline-block;
     height: none;
   }
 
-  .movies-card__btn_type_delete {
+  .movie__btn_type_delete {
     margin: 8px 0 28px 19px;
     min-width: 18px;
     height: 18px;
   }
 
-  .movies-card__image {
+  .movie__image {
     height: 168px;
     max-width: none;
   }
 
-  .movies-card__info {
+  .movie__info {
     width: calc(100% - 10px*2);
     margin: 0;
   }
 
-  .movies-card__title {
+  .movie__title {
     margin: 0 0 10px 0;
     padding: 0;
     line-height: 1.21;

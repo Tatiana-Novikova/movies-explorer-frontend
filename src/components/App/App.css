@@ -47,6 +47,20 @@
     flex-direction: column;
     align-items: center;
     height: 690px;
+    max-width: 260px;
     margin: 56px auto 30px;
+  }
+
+  .popup__content {
+    margin-top: 123px;
+    padding: 25px 22px;
+    width: calc(100% - 10px*2);
+  }
+
+  .popup__close-button {
+    top: -39.62px;
+    right: 0px;
+    max-width: 26px;
+    min-height: 26px;
   }
 }

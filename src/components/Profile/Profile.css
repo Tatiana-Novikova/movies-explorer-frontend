@@ -7,11 +7,21 @@
 }
 
 .profile__edit-button {
+  margin: 10px 0 0 0;
   border: none;
   background: transparent;
   line-height: 1.21;
   color: #fff;
   font-size: 13px;
+  cursor: pointer;
+}
+
+.profile__input {
+  max-height: 14px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  text-align: right;
   cursor: pointer;
 }
 
@@ -29,6 +39,12 @@
   color: #EE3465;
 }
 
+.profile__submit-message {
+  color: #32CD32;
+  text-align: center;
+}
+
+
 .profile__title {
   margin: 40px 0;
   line-height: 1.21;
@@ -39,21 +55,24 @@
 }
 
 .profile__user-info {
+  margin: 0 0 220px 0;
   display: flex;
+  align-content: space-between;
   justify-content: space-between;
+  align-items: center;
   min-width: 410px;
   border-bottom: solid 1px #424242;
   line-height: 1.21;
   font-size: 11px;
 }
 
-.profile__user-info:first-child {
-  margin: 83px 0 0 0;
+.profile__user-info-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.profile__user-info:last-child {
-  margin: 0 0 220px 0;
-  border: none;
+.profile__user-info:first-child {
+  margin: 83px 0 0 0;
 }
 
 @media screen and (max-width: 1279px) {
@@ -62,12 +81,12 @@
     margin: 234px auto 269px;
   }
 
+  .profile__user-inf0  {
+    margin: 0 0 210px 0;
+  }
+
   .profile__user-info:first-child {
     margin: 56px 0 0 0;
-  }
-  
-  .profile__user-info:last-child {
-    margin: 0 0 210px 0;
   }
 }
 
@@ -77,23 +96,20 @@
     margin: 30px auto 40px;
   }
 
+  .profile__edit-button  {
+    
+  }
+
   .profile__link {
     font-size: 12px;
   }
 
-  .profile__title {
-    text-align: center;
-  }
-
   .profile__user-info {
+    margin: 0 0 379px 0;
     min-width: 260px;
   }
 
   .profile__user-info:first-child {
     margin: 40px 0 0 0;
-  }
-  
-  .profile__user-info:last-child {
-    margin: 0 0 379px 0;
   }
 }

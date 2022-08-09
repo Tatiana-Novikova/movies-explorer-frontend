@@ -3,21 +3,14 @@ import { Link } from 'react-router-dom';
 import Form from '../Form/Form';
 import logo from '../../images/logo.svg';
 
-function Login ({ onLogin }) {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  function handleEmailChange (e) {
-    setEmail(e.target.value)
-  }
-
-  function handlePasswordChange (e) {
-    setPassword(e.target.value)
-  }
+function Login (props) {
+  const [isRequest, setIsRequest] = React.useState(false);
 
   function handleSubmit (e) {
-    e.preventDefault()
-    onLogin(email, password)
+    e.preventDefault();
+    setIsRequest(true);
+    props.onLogin(props.emailValue, props.passwordValue);
+    setIsRequest(false);
   }
 
   return (
@@ -30,7 +23,6 @@ function Login ({ onLogin }) {
         />
       </Link> 
       <Form
-        title='Рады видеть!'
         buttonText='Войти'
         caption='Ещё не зарегистрированы?'
         containsAnyImages={false}
@@ -38,9 +30,25 @@ function Login ({ onLogin }) {
         containsAnyForms={true}
         linkText='Регистрация'
         linkEndpoit='/signup'
-        onEmailChange={handleEmailChange}
-        onPasswordChange={handlePasswordChange}
-        onFormSubmit={handleSubmit}
+        title='Рады видеть!'
+        onSubmit={handleSubmit}
+        formSubmitErrorMessage={props.formSubmitErrorMessage}
+        emailValue={props.emailValue}
+        nameValue={props.nameValue}
+        passwordValue={props.passwordValue}
+        emailErrorMessage={props.emailErrorMessage}
+        nameErrorMessage={props.nameErrorMessage}
+        passwordErrorMessage={props.passwordErrorMessage}
+        onEmailFocus={props.onEmailFocus}
+        onEmailChange={props.onEmailChange}
+        onPasswordFocus={props.onPasswordFocus}
+        onPasswordChange={props.onPasswordChange}
+        isEmailDirty={props.isEmailDirty}
+        isPasswordDirty={props.isPasswordDirty}
+        isNameValid={true}
+        isEmalValid={props.isEmailValid}
+        isPasswordValid={props.isPasswordValid}
+        isRequest={isRequest}
       />
     </div>
   )
